@@ -1,78 +1,63 @@
-# Node/NPM / Yarn / Pnpm
+# Node modules
 node_modules/
-npm-debug.log*
-yarn-error.log*
-pnpm-debug.log*
 
-# Bundler
-.bundle/
-vendor/bundle/
+# Lock files
+package-lock.json
+package.json.snap
+yarn.lock
+pnpm-lock.yaml
 
-# dotenv
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Editor directories and files
-.vscode/
-.idea/
-*.sublime-workspace
-*.sublime-project
-
-# Log files
+# Logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
 
-# Build output
-build/
-dist/
-coverage/
-
-# OSX
+# OS generated files
 .DS_Store
-
-# Windows
-nthumbs.db
-
-# Misc
-.DS_Store
+.Trashes
 Thumbs.db
-*.lock
-*.log
-*.tmp
-*.swp
-*.swo
 
-# React Native / Expo specific
-android/app/build
-android/build
-android/gen
-.gradle
-*.iml
-.idea/
-.DS_Store
+# Build outputs
 build/
 dist/
+out/
+.next/
+
+# Vite-specific
+.vite/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.firebase/
+
+# Expo / React Native specific
+.expo/
+android/build/
+android/.gradle/
+ios/build/
+ios/.xcode.env.local
 *.apk
 *.aab
+*.ipa
 
-# TypeScript
+# Metro Bundle cache
+.tmp/
+
+# TypeScript caches
 *.tsbuildinfo
 
-# Vite / Webpack / etc.
-*.local
-public/
-src/
-index.html
-manifest.json
-robots.txt
+# IDE files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
 
-# Biome
-.biome/
-
-# Gemini API (example, adjust as needed)
-# google-api-key.json
+# Other development files
+.tool-versions
+.DS_Store
+coverage/
