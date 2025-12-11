@@ -1,44 +1,32 @@
 # Bug Report
 
-Thank you for helping us improve our application! Please provide as much detail as possible.
+## 🐛 Description
 
---- *** APEX TECHNICAL AUTHORITY STANDARD *** ---
+Please provide a clear and concise description of the bug. What is happening? What did you expect to happen?
 
-## 1. Environment Details
+## 💻 Environment
 
-*   **Application Version:** (e.g., `1.0.0` or `main` branch if development)
-*   **Platform:** (e.g., `iOS 17.2`, `Android 14`, `Web - Chrome 120`, `Web - Safari 17`)
-*   **Device:** (e.g., `iPhone 15 Pro`, `Samsung Galaxy S23`, `MacBook Pro M2`, `Windows 11 RTX 4090`)
+*   **Repository:** `https://github.com/chirag127/CogniSketch-AI-Art-Generator-Mobile-Web-App`
+*   **Device/OS:** (e.g., iOS 17.2 on iPhone 15 Pro, Android 14 on Pixel 8, Windows 11, macOS Sonoma)
+*   **Browser (if applicable):** (e.g., Chrome 120, Safari 17)
+*   **App Version (if applicable):**
+*   **Node.js Version (if applicable):**
+*   **npm/Yarn Version (if applicable):**
 
-## 2. Problem Description
+## 📝 Steps to Reproduce
 
-**Summary:** (A concise, high-level description of the bug)
+1.  Go to [URL/Screen]
+2.  Click [Button/Action]
+3.  Observe [Unexpected Behavior]
 
-**Detailed Steps to Reproduce:**
-1. Go to...
-2. Click on...
-3. Observe that...
+## 📸 Screenshots / Videos (Optional)
 
-**Expected Behavior:**
-(What *should* have happened?)
+If possible, add screenshots or a short video to help explain your problem.
 
-**Actual Behavior:**
-(What *actually* happened?)
+## 💡 Additional Information (Optional)
 
-## 3. Screenshots / Videos
+Provide any other context about the problem. Was this working before? Are there any related issues?
 
-(Please attach any relevant screenshots or screen recordings that help illustrate the problem. Drag and drop files directly into the issue editor.)
+---
 
-## 4. Logs
-
-(If applicable, please provide any relevant console logs or crash reports. For web applications, use your browser's developer console. For mobile applications, refer to Expo CLI logs or device-specific logging mechanisms.)
-
-## 5. Additional Context
-
-(Any other information that might be helpful, such as network conditions, specific sketch inputs, or artistic styles being used.)
-
---- *** APEX OPERATIONAL GUIDELINES *** ---
-
-*   **AI Integration:** If the bug relates to AI processing (e.g., Gemini Pro Vision output, style application), please note the input sketch/photo characteristics and the desired artistic style.
-*   **Cross-Platform Consistency:** If the bug appears on one platform but not another, please specify.
-*   **Performance:** If the bug involves significant performance degradation (slowdowns, crashes), please mention the approximate duration or conditions.
+_This bug report template adheres to the APEX TECHNICAL AUTHORITY standards, ensuring detailed and actionable feedback for the `CogniSketch-AI-Art-Generator-Mobile-Web-App` project._
