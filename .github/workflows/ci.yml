@@ -1,120 +1,82 @@
-name: Artifex-AI Apex CI/CD Pipeline
+name: CI/CD Pipeline
 
-on: 
+on:
   push:
     branches:
       - main
       - dev
-    paths-ignore:
-      - "**.md"
-      - "LICENSE"
-      - "**/docs/**"
   pull_request:
     branches:
       - main
       - dev
 
-env:
-  NODE_VERSION: '20' # Node LTS Standard 20.x
-
 jobs:
-  # ----------------------------------------
-  # STAGE 1: CORE INTEGRITY CHECK (LINT/FORMAT)
-  # ----------------------------------------
-  code_quality:
-    name: "⛔️ Code Quality Assurance (Lint & Format)"
+  build:
+    name: Build, Lint, Test, and Type Check
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js ${{ env.NODE_VERSION }}
+      - name: Setup Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: '20.x'
           cache: 'npm'
 
-      - name: Install Root Dependencies
-        # Assumes root dependencies handle shared tools like Biome/ESLint
+      - name: Install Frontend Dependencies
+        working-directory: ./frontend
         run: npm ci
 
-      - name: Enforce Code Style and Linting
-        # Assumes 'npm run lint' and 'npm run format:check' scripts exist at root
-        run: |
-          npm run lint
-          npm run format:check
-
-  # ----------------------------------------
-  # STAGE 2: SERVER (EXPRESS.JS) PIPELINE
-  # ----------------------------------------
-  server_build_test:
-    name: "⚙️ Server (Express.js) Build & Test"
-    runs-on: ubuntu-latest
-    needs: [code_quality]
-    defaults:
-      run:
-        working-directory: server/ 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: server/package-lock.json
-
-      - name: Install Server Dependencies
+      - name: Install Backend Dependencies
+        working-directory: ./backend
         run: npm ci
 
-      - name: Run Server Unit Tests & Coverage
-        # Assumes 'npm test' runs tests and generates coverage report
-        run: npm test -- --coverage
-        env:
-          NODE_ENV: test
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} # Required for AI modules
+      - name: Lint and Format Check (Biome) - Frontend
+        working-directory: ./frontend
+        run: npx @biomejs/biome check --formatter-enabled --linter-enabled .
 
-      - name: Upload Coverage to Codecov
+      - name: Lint and Format Check (Biome) - Backend
+        working-directory: ./backend
+        run: npx @biomejs/biome check --formatter-enabled --linter-enabled .
+
+      - name: Type Check (TypeScript) - Frontend
+        working-directory: ./frontend
+        run: npx tsc --noEmit
+
+      - name: Type Check (TypeScript) - Backend
+        working-directory: ./backend
+        run: npx tsc --noEmit
+
+      - name: Run Tests (Vitest) - Frontend
+        working-directory: ./frontend
+        run: npx vitest run --coverage
+
+      - name: Run Tests (Vitest) - Backend
+        working-directory: ./backend
+        run: npx vitest run --coverage
+
+      - name: Build Frontend (Expo Web)
+        working-directory: ./frontend
+        run: npx expo export --output-dir dist/web
+
+      - name: Build Backend
+        working-directory: ./backend
+        run: npm run build
+
+      - name: Run Security Audit - Frontend
+        working-directory: ./frontend
+        run: npm audit --audit-level=moderate || true
+
+      - name: Run Security Audit - Backend
+        working-directory: ./backend
+        run: npm audit --audit-level=moderate || true
+
+      - name: Upload coverage reports
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          directory: server/coverage/
-          files: ./coverage/clover.xml # Adjust path based on test runner output
-          fail_ci_if_error: true
-
-      - name: Build Server Artifact
-        # Transpilation step (e.g., if using TypeScript)
-        run: npm run build
-
-  # ----------------------------------------
-  # STAGE 3: CLIENT (REACT NATIVE) PIPELINE
-  # ----------------------------------------
-  client_test_build:
-    name: "📱 Client (React Native) Test & Bundle Check"
-    runs-on: ubuntu-latest
-    needs: [code_quality]
-    defaults:
-      run:
-        working-directory: client/
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: client/package-lock.json
-
-      - name: Install Client Dependencies
-        run: npm ci
-
-      - name: Run Client Unit Tests
-        # Includes functional component tests
-        run: npm test
-
-      - name: Check Client Bundle Readiness (Web/Expo Build)
-        # Ensures React Native code is correctly configured for bundling/transpilation
-        run: npm run build:web # Example script for basic bundling validation
+          directory: ./coverage
+          flags: unittests
+          fail_ci_if_error: false # Allow CI to pass even if Codecov upload fails
