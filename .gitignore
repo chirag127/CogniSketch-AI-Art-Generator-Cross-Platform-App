@@ -1,63 +1,79 @@
-# Node modules
+# Node modules and logs
 node_modules/
-
-# Lock files
-package-lock.json
-package.json.snap
-yarn.lock
-pnpm-lock.yaml
-
-# Logs
-*.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs
+*.log
+lerna-debug.log*
 
 # OS generated files
 .DS_Store
-.Trashes
 Thumbs.db
 
-# Build outputs
+# Expo / React Native artifacts
+.expo/
+.expo-shared/
+.expo/web/
+.expo/android/
+.expo/ios/
+.expo/metro-cache/
+.expo/react-native-packager-cache/
+
+# Metro bundler caches
+metro-cache/
+.cache/
+/tmp/metro-*
+
+# Android & iOS build directories
+android/
+ios/
+*.gradle
+.gradle/
 build/
+app/build/
+*.apk
+*.apks
+*.aab
+*.xcworkspace
+*.xcuserdata
+DerivedData/
+fastlane/
+Pods/
+Podfile.lock
+
+# TypeScript compiled output
 dist/
 out/
-.next/
-
-# Vite-specific
-.vite/
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-.firebase/
-
-# Expo / React Native specific
-.expo/
-android/build/
-android/.gradle/
-ios/build/
-ios/.xcode.env.local
-*.apk
-*.aab
-*.ipa
-
-# Metro Bundle cache
-.tmp/
-
-# TypeScript caches
 *.tsbuildinfo
 
-# IDE files
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.idea/
+# Babel cache
+babel-cache/
+.cache/
 
-# Other development files
-.tool-versions
-.DS_Store
+# Test coverage reports
 coverage/
+*.lcov
+
+# Environment files
+.env
+.env.*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE / editor settings
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Biome cache
+.biome/
+
+# Miscellaneous
+*.bak
+*.tmp
