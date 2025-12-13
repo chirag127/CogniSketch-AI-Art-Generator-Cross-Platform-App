@@ -1,68 +1,44 @@
-# Pull Request Template
+# Pull Request Template for CogniSketch-AI-Art-Generator-Cross-Platform-App
 
-**IMPORTANT:** Please ensure all contributions adhere to the Apex Technical Authority standards and the repository's architectural principles.
+## Introduction
+Thank you for considering contributing to CogniSketch-AI-Art-Generator-Cross-Platform-App! This template will guide you through the process of creating a high-quality pull request.
 
---- 
+## Pull Request Guidelines
+Before submitting your pull request, please ensure that:
+* You have read and understood the [CODE_OF_CONDUCT](https://github.com/chirag127/CogniSketch-AI-Art-Generator-Cross-Platform-App/blob/main/CODE_OF_CONDUCT.md).
+* You have checked the [README](https://github.com/chirag127/CogniSketch-AI-Art-Generator-Cross-Platform-App/blob/main/README.md) for the latest information on the project.
+* Your code is properly formatted and follows the project's coding standards.
+* You have included relevant tests and verification scripts.
+* You have updated the documentation to reflect any changes made.
 
-## 🚀 High-Level Summary
+## Description of Changes
+Please provide a brief description of the changes made in this pull request:
 
-Provide a concise, 1-2 sentence overview of the changes in this pull request. What is the primary goal or impact of this PR?
+* **Fixed:** [List any bugs or issues fixed]
+* **Added:** [List any new features or functionality added]
+* **Changed:** [List any changes made to existing functionality]
+* **Removed:** [List any features or functionality removed]
 
----
+## Related Issues
+If this pull request addresses any specific issues, please list them below:
 
-## 🎯 Changes Detailed
+* [List related issues, e.g. #123, #456]
 
-*   **Type of Change:** (e.g., Bug Fix, New Feature, Refactoring, Documentation Update, Performance Improvement, Chore)
-*   **Description:** Elaborate on the specific modifications made. Detail the problem addressed and the solution implemented.
-*   **Affected Areas:** List the core components, modules, or features impacted by this PR.
-*   **Screenshots/Gifs (if applicable):** For UI/UX changes, visually demonstrate the outcome.
+## Verification and Testing
+Please describe the verification and testing process you have undergone to ensure the changes work as expected:
 
----
+* **Testing Environment:** [Describe the environment used for testing, e.g. operating system, browser, etc.]
+* **Test Cases:** [List any specific test cases or scenarios tested]
+* **Results:** [Describe the results of the testing, including any successes or failures]
 
-## 🧪 Testing & Verification
+## Additional Comments
+Any additional comments or context that may be helpful for reviewers:
 
-*   **Testing Strategy:** Describe how you tested your changes. Include:
-    *   Manual testing steps performed.
-    *   Unit/Integration tests added or modified (and their coverage).
-    *   End-to-end tests executed.
-    *   Relevant commands run (e.g., `npm run test`, `pytest`).
-*   **Verification Commands:** Provide any specific commands a reviewer should run to verify the changes.
+[Add any additional comments or context here]
 
----
+## Agreement
+By submitting this pull request, I confirm that:
+* I have the right to submit this code under the terms of the [LICENSE](https://github.com/chirag127/CogniSketch-AI-Art-Generator-Cross-Platform-App/blob/main/LICENSE).
+* I have followed the guidelines and best practices outlined in the [CONTRIBUTING](https://github.com/chirag127/CogniSketch-AI-Art-Generator-Cross-Platform-App/blob/main/CONTRIBUTING.md) document.
 
-## 🧐 Architectural Alignment
-
-*   **Adherence to Apex Standards:** Confirm that the changes align with the **Apex Technical Authority** principles and the **December 2025 / 2026 standards** outlined in `AGENTS.md`.
-*   **Architectural Patterns:** Explain how the changes fit within the established architectural patterns (e.g., FSD for Frontend, Modular Monolith for Python, Hexagonal for Systems).
-*   **Impact on Existing Architecture:** Detail any potential impacts or interactions with other parts of the system.
-
----
-
-## 🔒 Security Review
-
-*   **Security Considerations:** Have you considered potential security implications? Are there any new dependencies, API interactions, or data handling practices that require a security review?
-*   **Refer to `SECURITY.md`:** Ensure compliance with the repository's security guidelines.
-
----
-
-## 🛠️ Dependencies & Environment
-
-*   **New Dependencies:** List any new libraries or packages added.
-*   **Dependency Updates:** Note any significant updates to existing dependencies.
-*   **Environment Variables:** Clarify if any new environment variables are required or if existing ones have changed.
-
----
-
-## 📝 Developer Notes
-
-*   Any additional information, context, or potential concerns that might be helpful for the reviewer.
-
----
-
-**By submitting this Pull Request, you affirm that:**
-
-1.  Your contributions adhere to the Apache 2.0 License and the "CC BY-NC" license.
-2.  All tests (unit, integration, E2E) are passing.
-3.  The code is formatted and linted according to project standards (Biome/Ruff).
-4.  The changes have been reviewed against the `AGENTS.md` directives.
-5.  The Pull Request template is filled out completely and accurately.
+[Your Name]
